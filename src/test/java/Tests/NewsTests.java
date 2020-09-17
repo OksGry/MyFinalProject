@@ -10,6 +10,13 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class NewsTests extends BaseTest{
 
+    private final String NAME = "Kuhulin";
+    private final String EMAIL = "IrishYersh@gmail.com";
+    private final String PHONE_NUMBER = "7559066899";
+    private final String LOCATION = "Dublin";
+
+
+
     @Test
     public void checkTheNameOfTheHeadlineArticle(){
         getHomePage().clickNewsButton();
@@ -60,10 +67,10 @@ public class NewsTests extends BaseTest{
         getBasePage().waitForPageLoadComplete(10);
         getCoronavirusPage().clickHowToShareButton();
         getBasePage().waitForPageLoadComplete(10);
-        getStoryFormPage().inputName("Molly Malown");
-        getStoryFormPage().inputEmail("IrishYersh@gmail.com");
-        getStoryFormPage().inputPhoneNumber("67889984747");
-        getStoryFormPage().inputLocation("Dublin");
+        getStoryFormPage().inputName(NAME);
+        getStoryFormPage().inputEmail(EMAIL);
+        getStoryFormPage().inputPhoneNumber(PHONE_NUMBER);
+        getStoryFormPage().inputLocation(LOCATION);
         getStoryFormPage().clickCheckboxPublishingName();
         getStoryFormPage().clickCheckboxConfirmAge();
         getStoryFormPage().clickCheckboxTeamsOfService();
@@ -83,10 +90,10 @@ public class NewsTests extends BaseTest{
         getCoronavirusPage().implicitWait(10);
         getCoronavirusPage().clickHowToShareButton();
         getStoryFormPage().inputStory("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        getStoryFormPage().inputName("Kuhulin");
-        getStoryFormPage().inputEmail("IrishYersh@gmail.com");
-        getStoryFormPage().inputPhoneNumber("67889984747");
-        getStoryFormPage().inputLocation("Dublin");
+        getStoryFormPage().inputName(NAME);
+        getStoryFormPage().inputEmail(EMAIL);
+        getStoryFormPage().inputPhoneNumber(PHONE_NUMBER);
+        getStoryFormPage().inputLocation(LOCATION);
         getStoryFormPage().clickCheckboxPublishingName();
         getStoryFormPage().clickCheckboxTeamsOfService();
         getStoryFormPage().clickSubmitButton();
@@ -105,9 +112,9 @@ public class NewsTests extends BaseTest{
         getCoronavirusPage().implicitWait(10);
         getCoronavirusPage().clickHowToShareButton();
         getStoryFormPage().inputStory("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        getStoryFormPage().inputEmail("IrishYersh@gmail.com");
-        getStoryFormPage().inputPhoneNumber("67889984747");
-        getStoryFormPage().inputLocation("Dublin");
+        getStoryFormPage().inputEmail(EMAIL);
+        getStoryFormPage().inputPhoneNumber(PHONE_NUMBER);
+        getStoryFormPage().inputLocation(LOCATION);
         getStoryFormPage().clickCheckboxPublishingName();
         getStoryFormPage().clickCheckboxConfirmAge();
         getStoryFormPage().clickCheckboxTeamsOfService();
@@ -127,10 +134,10 @@ public class NewsTests extends BaseTest{
         getCoronavirusPage().implicitWait(10);
         getCoronavirusPage().clickHowToShareButton();
         getStoryFormPage().inputStory("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        getStoryFormPage().inputName("Kuhulin");
-        getStoryFormPage().inputEmail("IrishYersh@gmail.com");
-        getStoryFormPage().inputPhoneNumber("67889984747");
-        getStoryFormPage().inputLocation("Dublin");
+        getStoryFormPage().inputName(NAME);
+        getStoryFormPage().inputEmail(EMAIL);
+        getStoryFormPage().inputPhoneNumber(PHONE_NUMBER);
+        getStoryFormPage().inputLocation(LOCATION);
         getStoryFormPage().clickCheckboxPublishingName();
         getStoryFormPage().clickCheckboxConfirmAge();
         getStoryFormPage().clickSubmitButton();
