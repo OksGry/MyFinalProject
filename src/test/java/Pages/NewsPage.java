@@ -25,6 +25,9 @@ public class NewsPage extends BasePage{
     @FindBy(xpath = "//nav[@class='nw-c-nav__wide']//span[text()='Coronavirus']")
     private WebElement coronaButton;
 
+    @FindBy(xpath = "//button[@class='sign_in-exit']")
+    private WebElement signInLater;
+
 
     public String getTextFromHeadlineArticle(){
         return  headlineArticle.getText();
@@ -34,12 +37,36 @@ public class NewsPage extends BasePage{
         return  listSecondLineArticles;
     }
 
-    public void searchByKeyword( String keyword){
+    public SearchResultPage searchByKeyword( String keyword){
         searchInput.sendKeys(keyword, Keys.ENTER);
+        return new SearchResultPage(getDriver());
     }
 
-    public void clickCoronaButton(){
+    public CoronavirusPage clickCoronaButton(){
         coronaButton.click();
+        return new CoronavirusPage(getDriver());
+    }
+
+    public NewsPage clickSignInLaterButton(){
+
+        waitVisibilityOfElement(10, signInLater);
+        signInLater.click();
+        return new NewsPage(getDriver());
+    }
+
+    public int checkWhatSecondLineArticlesMatch(String [] arrayNamesOfArticles) {
+        waitForPageLoadComplete(10);
+        int count = 0;
+        for (WebElement webElement : listSecondLineArticles) {
+            for (String name : arrayNamesOfArticles) {
+                if (webElement.getText().equals(name)) {
+
+                    count++;
+
+                }
+            }
+        }
+        return count;
     }
 
 }

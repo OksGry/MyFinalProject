@@ -13,18 +13,10 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@id='orb-nav-links']//a[text()='News']")
     private WebElement newsButton;
 
-    @FindBy(xpath = "//button[@class='sign_in-exit']")
-    private WebElement signInLater;
-
-    public void clickNewsButton(){
+    public NewsPage clickNewsButton(){
         newsButton.click();
+        return new NewsPage(getDriver());
+
     }
 
-    public WebElement getSignInLater(){ return signInLater;}
-
-    public void clickSignInLaterButton(){
-
-        waitVisibilityOfElement(10, signInLater);
-        signInLater.click();
-    }
 }

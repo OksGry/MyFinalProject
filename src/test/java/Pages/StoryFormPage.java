@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class StoryFormPage extends BasePage{
 
     @FindBy(tagName = "textarea")
@@ -38,40 +39,31 @@ public class StoryFormPage extends BasePage{
         super(driver);
     }
 
-    public void inputStory(String story){
-        textFieldForStory.sendKeys(story);
+    public void inputData(WebElement inputField, String data) {
+        if(!data.isEmpty()){
+            inputField.sendKeys(data);
+        }
     }
 
-    public void inputName(String name){
-        inputNameField.sendKeys(name);
+    public void clickCheckbox(WebElement checkbox, boolean check){
+        if(check){
+            checkbox.click();
+        }
     }
 
-    public void inputEmail(String email){
-        inputEmailField.sendKeys(email);
-    }
+    public StoryFormPage fillForm(String text, String name, String email, String phone, String location, boolean checkbox1, boolean checkbox2, boolean checkbox3){
 
-    public void inputPhoneNumber(String number){
-        inputNumberField.sendKeys(number);
-    }
-
-    public void inputLocation(String location){
-        inputLocationField.sendKeys(location);
-    }
-
-    public void clickCheckboxPublishingName(){
-        checkboxPublishingName.click();
-    }
-
-    public void clickCheckboxConfirmAge(){
-        checkboxConfirmAge.click();
-    }
-
-    public void clickCheckboxTeamsOfService(){
-        checkboxTeamsOfService.click();
-    }
-
-    public void clickSubmitButton(){
+        waitForPageLoadComplete(20);
+        inputData(textFieldForStory,text);
+        inputData(inputNameField,name);
+        inputData(inputEmailField,email);
+        inputData(inputNumberField,phone);
+        inputData(inputLocationField,location);
+        clickCheckbox(checkboxPublishingName, checkbox1);
+        clickCheckbox(checkboxConfirmAge, checkbox2);
+        clickCheckbox(checkboxTeamsOfService, checkbox3);
         submitButton.click();
+        return new StoryFormPage(this.getDriver());
     }
 
     public String getUrl(WebDriver driver){

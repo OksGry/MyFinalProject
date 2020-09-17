@@ -1,6 +1,5 @@
 package Tests;
 
-import Pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -25,32 +24,11 @@ public class BaseTest {
         driver.get(BBC_URL);
     }
 
-    //@AfterMethod
-    //public void tearDown() {driver.close();}
+    @AfterMethod
+    public void tearDown() {driver.close();}
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    public BasePage getBasePage() {
-        return new BasePage(getDriver());
-    }
-
-    public HomePage getHomePage() {
-        return new HomePage(getDriver());
-    }
-
-    public NewsPage getNewPage() {
-        return new NewsPage(getDriver());
-    }
-
-    public SearchResultPage getSearchResultPage() {
-        return new SearchResultPage(getDriver());
-    }
-
-    public CoronavirusPage getCoronavirusPage() {
-        return new CoronavirusPage(getDriver());
-    }
-
-    public StoryFormPage getStoryFormPage() { return new StoryFormPage(getDriver());}
 }

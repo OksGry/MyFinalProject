@@ -18,11 +18,15 @@ public class CoronavirusPage extends BasePage{
 
     }
 
-    public void clickYourStoryButton(){
+    public CoronavirusPage clickYourStoryButton(){
+        waitForPageLoadComplete(10);
         yourStoryButton.click();
+       return new CoronavirusPage(getDriver());
     }
 
-    public void clickHowToShareButton(){
+    public StoryFormPage clickHowToShareButton(){
+        waitForPageLoadComplete(10);
         howToShareButton.click();
+        return new StoryFormPage(this.getDriver());
     }
 }

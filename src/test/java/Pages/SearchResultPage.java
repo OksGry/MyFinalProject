@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchResultPage extends BasePage{
 
+    @FindBy(xpath = "//p//span[@aria-hidden='false']")
+    private WebElement searchResult;
+
     public SearchResultPage(WebDriver driver){
         super(driver);
     }
-
-    @FindBy(xpath = "//p//span[@aria-hidden='false']")
-    private WebElement searchResult;
 
     public String getTextOfSearchResult(){
        return searchResult.getText();
