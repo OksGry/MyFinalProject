@@ -25,7 +25,7 @@ public abstract class BasePage {
     }
 
     public void waitVisibilityOfElement(WebElement element) {
-       waitVisibilityOfElement(timeValueOfWait, element);
+        waitVisibilityOfElement(timeValueOfWait, element);
     }
 
     public void waitForPageLoadComplete(int timeToWait) {

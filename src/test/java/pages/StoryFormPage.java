@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.Map;
 
-
 public class StoryFormPage extends BasePage {
 
     @FindBy(tagName = "textarea")
@@ -53,7 +52,7 @@ public class StoryFormPage extends BasePage {
         }
     }
 
-    public StoryFormPage fillForm(Map<String,String> data) {
+    public StoryFormPage fillForm(Map<String, String> data) {
 
         waitForPageLoadComplete(20);
 
@@ -69,7 +68,8 @@ public class StoryFormPage extends BasePage {
 
         return this;
     }
-    public StoryFormPage clickSubmitButton(){
+
+    public StoryFormPage clickSubmitButton() {
         submitButton.click();
         return this;
     }

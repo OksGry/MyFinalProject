@@ -1,10 +1,7 @@
 package tests;
 
-
 import org.testng.annotations.Test;
-import pages.HomePage;
-
-
+import pages.BusinessLogic;
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -23,9 +20,8 @@ public class NewsTests extends BaseTest {
 
     @Test
     public void checkTheNameOfTheHeadlineArticle() {
-        String textFromHeadlineArticle = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
+        String textFromHeadlineArticle = new BusinessLogic(driver)
+                .userGoToNews()
                 .getTextFromHeadlineArticle();
 
         assertEquals(textFromHeadlineArticle, NAME_ARTICLE);
@@ -33,9 +29,8 @@ public class NewsTests extends BaseTest {
 
     @Test
     public void checkTheNamesOfSecondLineArticles() {
-        int count = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
+        int count = new BusinessLogic(driver)
+                .userGoToNews()
                 .checkWhatSecondLineArticlesMatch(arrayNamesOfArticles);
 
         assertEquals(count, 5);
@@ -44,10 +39,8 @@ public class NewsTests extends BaseTest {
     @Test
     public void checkSearchForArticleByCategory() {
         String SEARCH_KEY = "UK";
-        String textOfSearchResult = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
-                .searchByKeyword()
+        String textOfSearchResult = new BusinessLogic(driver)
+                .userSearch()
                 .getTextOfSearchResult();
 
         assertTrue(textOfSearchResult.contains(SEARCH_KEY));

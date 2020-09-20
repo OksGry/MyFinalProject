@@ -1,8 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.HomePage;
-
+import pages.BusinessLogic;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +13,7 @@ public class SubmitStoryFormTests extends BaseTest {
 
     @Test
     public void checkNoInputStory() {
-        Map<String,String> dataForForm = new HashMap<String, String>();
+        Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "");
         dataForForm.put("name", "Kuhulin");
         dataForForm.put("email", "IrishYersh@gmail.com");
@@ -24,15 +23,8 @@ public class SubmitStoryFormTests extends BaseTest {
         dataForForm.put("checkbox_confirm_age", "yes");
         dataForForm.put("checkbox_teams_of_service", "yes");
 
-
-        String urlCurrentPage = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
-                .clickCoronaButton()
-                .clickYourStoryButton()
-                .clickHowToShareButton()
-                .fillForm(dataForForm)
-                .clickSubmitButton()
+        String urlCurrentPage = new BusinessLogic(driver)
+                .userCanSubmitStory(dataForForm)
                 .getUrl(driver);
 
         assertEquals(urlCurrentPage, URL_STORY_PAGE);
@@ -40,7 +32,7 @@ public class SubmitStoryFormTests extends BaseTest {
 
     @Test
     public void checkNoConfirmAge() {
-        Map<String,String> dataForForm = new HashMap<String, String>();
+        Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "Venezuela accused of 'egregious' crimes by UN");
         dataForForm.put("name", "Kuhulin");
         dataForForm.put("email", "IrishYersh@gmail.com");
@@ -50,14 +42,8 @@ public class SubmitStoryFormTests extends BaseTest {
         dataForForm.put("checkbox_confirm_age", "");
         dataForForm.put("checkbox_teams_of_service", "yes");
 
-        String urlCurrentPage = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
-                .clickCoronaButton()
-                .clickYourStoryButton()
-                .clickHowToShareButton()
-                .fillForm(dataForForm)
-                .clickSubmitButton()
+        String urlCurrentPage = new BusinessLogic(driver)
+                .userCanSubmitStory(dataForForm)
                 .getUrl(driver);
 
         assertEquals(urlCurrentPage, URL_STORY_PAGE);
@@ -65,7 +51,7 @@ public class SubmitStoryFormTests extends BaseTest {
 
     @Test
     public void checkNoInputName() {
-        Map<String,String> dataForForm = new HashMap<String, String>();
+        Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "Venezuela accused of 'egregious' crimes by UN");
         dataForForm.put("name", "");
         dataForForm.put("email", "IrishYersh@gmail.com");
@@ -75,14 +61,8 @@ public class SubmitStoryFormTests extends BaseTest {
         dataForForm.put("checkbox_confirm_age", "yes");
         dataForForm.put("checkbox_teams_of_service", "yes");
 
-        String urlCurrentPage = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
-                .clickCoronaButton()
-                .clickYourStoryButton()
-                .clickHowToShareButton()
-                .fillForm(dataForForm)
-                .clickSubmitButton()
+        String urlCurrentPage = new BusinessLogic(driver)
+                .userCanSubmitStory(dataForForm)
                 .getUrl(driver);
 
         assertEquals(urlCurrentPage, URL_STORY_PAGE);
@@ -90,7 +70,7 @@ public class SubmitStoryFormTests extends BaseTest {
 
     @Test
     public void checkNoAcceptTeamsOfService() {
-        Map<String,String> dataForForm = new HashMap<String, String>();
+        Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "Venezuela accused of 'egregious' crimes by UN");
         dataForForm.put("name", "Kuhulin");
         dataForForm.put("email", "IrishYersh@gmail.com");
@@ -100,14 +80,8 @@ public class SubmitStoryFormTests extends BaseTest {
         dataForForm.put("checkbox_confirm_age", "yes");
         dataForForm.put("checkbox_teams_of_service", "no");
 
-        String urlCurrentPage = new HomePage(driver)
-                .clickNewsButton()
-                .clickSignInLaterButton()
-                .clickCoronaButton()
-                .clickYourStoryButton()
-                .clickHowToShareButton()
-                .fillForm(dataForForm)
-                .clickSubmitButton()
+        String urlCurrentPage = new BusinessLogic(driver)
+                .userCanSubmitStory(dataForForm)
                 .getUrl(driver);
 
         assertEquals(urlCurrentPage, URL_STORY_PAGE);

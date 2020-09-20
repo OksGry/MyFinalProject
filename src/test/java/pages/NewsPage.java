@@ -11,14 +11,19 @@ public class NewsPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//h3")
     private WebElement headlineArticle;
+
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//a//span[@aria-hidden='true']")
     private WebElement categoryLink;
+
     @FindBy(xpath = "//div[contains(@class,'secondary-item')]//h3")
     private List<WebElement> listSecondLineArticles;
+
     @FindBy(xpath = "//input[@id='orb-search-q']")
     private WebElement searchInput;
+
     @FindBy(xpath = "//nav[@class='nw-c-nav__wide']//span[text()='Coronavirus']")
     private WebElement coronaButton;
+
     @FindBy(xpath = "//button[@class='sign_in-exit']")
     private WebElement signInLater;
 
@@ -26,8 +31,8 @@ public class NewsPage extends BasePage {
         super(driver);
     }
 
-    public String getTextFromHeadlineArticle(){
-        return  headlineArticle.getText();
+    public String getTextFromHeadlineArticle() {
+        return headlineArticle.getText();
     }
 
     public SearchResultPage searchByKeyword() {
