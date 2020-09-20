@@ -15,7 +15,6 @@ public class CoronavirusPage extends BasePage {
     public CoronavirusPage(WebDriver driver) {
 
         super(driver);
-
     }
 
     public CoronavirusPage clickYourStoryButton() {
@@ -24,9 +23,9 @@ public class CoronavirusPage extends BasePage {
         return this;
     }
 
-    public StoryFormPage clickHowToShareButton() {
+    public Form clickHowToShareButton() {
         waitForPageLoadComplete();
         howToShareButton.click();
-        return new StoryFormPage(driver);
+        return new Form(driver);
     }
 }
