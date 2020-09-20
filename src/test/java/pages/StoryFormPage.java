@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Map;
+
 
 public class StoryFormPage extends BasePage {
 
@@ -40,30 +42,30 @@ public class StoryFormPage extends BasePage {
     }
 
     public void inputData(WebElement inputField, String data) {
-        if (!data.isEmpty()) {
+        if (!data.equals("")) {
             inputField.sendKeys(data);
         }
     }
 
-    public void clickCheckbox(WebElement checkbox, boolean check) {
-        if (check) {
+    public void clickCheckbox(WebElement checkbox, String check) {
+        if (check.equals("yes")) {
             checkbox.click();
         }
     }
 
-    public StoryFormPage fillForm(String text, String name, String email, String phone, String location, boolean checkbox1, boolean checkbox2, boolean checkbox3) {
+    public StoryFormPage fillForm(Map<String,String> data) {
 
         waitForPageLoadComplete(20);
 
-        inputData(textFieldForStory, text);
-        inputData(inputNameField, name);
-        inputData(inputEmailField, email);
-        inputData(inputNumberField, phone);
-        inputData(inputLocationField, location);
+        inputData(textFieldForStory, data.get("text"));
+        inputData(inputNameField, data.get("name"));
+        inputData(inputEmailField, data.get("email"));
+        inputData(inputNumberField, data.get("phone_number"));
+        inputData(inputLocationField, data.get("location"));
 
-        clickCheckbox(checkboxPublishingName, checkbox1);
-        clickCheckbox(checkboxConfirmAge, checkbox2);
-        clickCheckbox(checkboxTeamsOfService, checkbox3);
+        clickCheckbox(checkboxPublishingName, data.get("checkbox_publishing_name"));
+        clickCheckbox(checkboxConfirmAge, data.get("checkbox_confirm_age"));
+        clickCheckbox(checkboxTeamsOfService, data.get("checkbox_teams_of_service"));
 
         return this;
     }
