@@ -31,7 +31,7 @@ public class SubmitStoryFormTests extends BaseTest {
     }
 
     @Test
-    public void checkNoConfirmAge() {
+    public void checkNoChooseConfirmAgeCheckbox() {
         Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "Venezuela accused of 'egregious' crimes by UN");
         dataForForm.put("name", "Kuhulin");
@@ -69,7 +69,7 @@ public class SubmitStoryFormTests extends BaseTest {
     }
 
     @Test
-    public void checkNoAcceptTeamsOfService() {
+    public void checkNoChooseAcceptTeamsOfServiceCheckbox() {
         Map<String,String> dataForForm = new HashMap<>();
         dataForForm.put("text", "Venezuela accused of 'egregious' crimes by UN");
         dataForForm.put("name", "Kuhulin");
