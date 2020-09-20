@@ -1,10 +1,10 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CoronavirusPage extends BasePage{
+public class CoronavirusPage extends BasePage {
 
     @FindBy(xpath = "//nav[@class = 'nw-c-nav__wide-secondary']//span[text()='Your Coronavirus Stories']")
     private WebElement yourStoryButton;
@@ -12,21 +12,21 @@ public class CoronavirusPage extends BasePage{
     @FindBy(xpath = "//a[@href = '/news/10725415']")
     private WebElement howToShareButton;
 
-    public CoronavirusPage(WebDriver driver){
+    public CoronavirusPage(WebDriver driver) {
 
         super(driver);
 
     }
 
-    public CoronavirusPage clickYourStoryButton(){
-        waitForPageLoadComplete(10);
+    public CoronavirusPage clickYourStoryButton() {
+        waitForPageLoadComplete();
         yourStoryButton.click();
-       return new CoronavirusPage(getDriver());
+        return this;
     }
 
-    public StoryFormPage clickHowToShareButton(){
-        waitForPageLoadComplete(10);
+    public StoryFormPage clickHowToShareButton() {
+        waitForPageLoadComplete();
         howToShareButton.click();
-        return new StoryFormPage(this.getDriver());
+        return new StoryFormPage(driver);
     }
 }

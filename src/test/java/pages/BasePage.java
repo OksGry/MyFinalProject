@@ -1,4 +1,4 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,27 +8,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class BasePage {
+public abstract class BasePage {
 
-    private final WebDriver driver;
+    protected final WebDriver driver;
+    protected final int timeValueOfWait = 10;
 
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-     public void waitVisibilityOfElement(long timeToWait, WebElement element) {
+    public void waitVisibilityOfElement(int timeToWait, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, timeToWait);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForPageLoadComplete(long timeToWait) {
+    public void waitVisibilityOfElement(WebElement element) {
+       waitVisibilityOfElement(timeValueOfWait, element);
+    }
+
+    public void waitForPageLoadComplete(int timeToWait) {
         new WebDriverWait(driver, timeToWait).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    public void waitForPageLoadComplete() {
+        waitForPageLoadComplete(timeValueOfWait);
     }
+
+
 }
