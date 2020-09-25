@@ -1,4 +1,4 @@
-package pages;
+package com.BBC.MyFinalProject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

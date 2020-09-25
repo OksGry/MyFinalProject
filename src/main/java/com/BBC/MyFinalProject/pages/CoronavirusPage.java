@@ -1,4 +1,4 @@
-package pages;
+package com.BBC.MyFinalProject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,9 +23,8 @@ public class CoronavirusPage extends BasePage {
         return this;
     }
 
-    public Form clickHowToShareButton() {
+    public void clickHowToShareButton() {
         waitForPageLoadComplete();
         howToShareButton.click();
-        return new Form(driver);
     }
 }

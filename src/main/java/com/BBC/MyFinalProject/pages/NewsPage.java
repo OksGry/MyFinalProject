@@ -1,4 +1,4 @@
-package pages;
+package com.BBC.MyFinalProject.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -35,9 +35,12 @@ public class NewsPage extends BasePage {
         return headlineArticle.getText();
     }
 
-    public SearchResultPage searchByKeyword() {
-        searchInput.sendKeys(categoryLink.getText(), Keys.ENTER);
-        return new SearchResultPage(driver);
+    public String getCategoryText(){
+        return  categoryLink.getText();
+    }
+
+    public void searchByKeyword() {
+        searchInput.sendKeys(this.getCategoryText(), Keys.ENTER);
     }
 
     public CoronavirusPage clickCoronaButton() {
