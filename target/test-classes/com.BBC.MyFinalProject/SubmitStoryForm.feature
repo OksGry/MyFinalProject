@@ -1,4 +1,4 @@
-Feature: As User I can submit a question to BBC
+Feature: As User I can submit a question/story to BBC
 
   Background:
     Given the user open BBC website
@@ -9,8 +9,8 @@ Feature: As User I can submit a question to BBC
     Given the user click on How to share with BBC News
 
 
-  Scenario: User fills form for the submit a question with empty text field and submit.
-            The page should be the same, submission don't work
+  Scenario: User fills form for the submit a question/story with empty text field and submit.
+  The page should be the same, submission don't work
     When the user fills the Name field with a valid value
     And the user fills the Email field with a valid value
     And the user fills the Phone field with a valid value
@@ -21,7 +21,7 @@ Feature: As User I can submit a question to BBC
     Then url page the same what expected
 
 
-  Scenario: User fills form for the submit a question with empty name field and submit.
+  Scenario: User fills form for the submit a question/story with empty name field and submit.
   The page should be the same, submission don't work
     When the user fills the Tell us your story field with a valid value
     And the user fills the Email field with a valid value
@@ -34,7 +34,7 @@ Feature: As User I can submit a question to BBC
     Then url page the same what expected
 
 
-  Scenario: User fills form for the submit a question, but not selects the "I am over 16 years old" checkbox and submit.
+  Scenario: User fills form for the submit a question/story, but not selects the "I am over 16 years old" checkbox and submit.
   The page should be the same, submission don't work
     When the user fills the Tell us your story field with a valid value
     And the user fills the Name field with a valid value
@@ -46,7 +46,7 @@ Feature: As User I can submit a question to BBC
     Then url page the same what expected
 
 
-  Scenario: User fills form for the submit a question, but not selects the "I accept the Terms of Service" checkbox and submit.
+  Scenario: User fills form for the submit a question/story, but not selects the "I accept the Terms of Service" checkbox and submit.
   The page should be the same, submission don't work
     When the user fills the Tell us your story field with a valid value
     And the user fills the Name field with a valid value

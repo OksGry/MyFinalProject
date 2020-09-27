@@ -36,6 +36,4 @@ public abstract class BasePage {
     public void waitForPageLoadComplete() {
         waitForPageLoadComplete(timeValueOfWait);
     }
-
-
 }

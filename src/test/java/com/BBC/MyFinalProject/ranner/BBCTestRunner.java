@@ -9,7 +9,4 @@ import io.cucumber.testng.CucumberOptions;
         glue = "com.BBC.MyFinalProject",
         features = "src/test/resources/com.BBC.MyFinalProject/")
 
-public class BBCTestRunner extends AbstractTestNGCucumberTests {
-
-
-}
+public class BBCTestRunner extends AbstractTestNGCucumberTests { }

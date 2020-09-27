@@ -12,13 +12,14 @@ public class DriverManager {
     private static String driverType = "";
 
 
-    private DriverManager(){}
+    private DriverManager() {
+    }
 
-    public static WebDriver getDriver(String driverName){
+    public static WebDriver getDriver(String driverName) {
         driverType = driverName;
 
-        if (null == driver){
-            switch (driverName){
+        if (null == driver) {
+            switch (driverName) {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
@@ -39,8 +40,8 @@ public class DriverManager {
         return driver;
     }
 
-    public static WebDriver getDriver(){
-        return driver==null ? getDriver(driverType) : driver;
+    public static WebDriver getDriver() {
+        return driver == null ? getDriver(driverType) : driver;
     }
 
     public static void quitDriver() {

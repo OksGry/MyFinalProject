@@ -32,11 +32,12 @@ public class NewsPage extends BasePage {
     }
 
     public String getTextFromHeadlineArticle() {
+        waitForPageLoadComplete();
         return headlineArticle.getText();
     }
 
-    public String getCategoryText(){
-        return  categoryLink.getText();
+    public String getCategoryText() {
+        return categoryLink.getText();
     }
 
     public void searchByKeyword() {

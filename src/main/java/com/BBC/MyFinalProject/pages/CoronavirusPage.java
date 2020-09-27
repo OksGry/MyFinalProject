@@ -13,7 +13,6 @@ public class CoronavirusPage extends BasePage {
     private WebElement howToShareButton;
 
     public CoronavirusPage(WebDriver driver) {
-
         super(driver);
     }
 
