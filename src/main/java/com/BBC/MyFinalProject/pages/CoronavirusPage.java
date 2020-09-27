@@ -17,10 +17,9 @@ public class CoronavirusPage extends BasePage {
         super(driver);
     }
 
-    public CoronavirusPage clickYourStoryButton() {
+    public void clickYourStoryButton() {
         waitForPageLoadComplete();
         yourStoryButton.click();
-        return this;
     }
 
     public void clickHowToShareButton() {

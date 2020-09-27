@@ -13,10 +13,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public NewsPage clickNewsButton() {
+    public void clickNewsButton() {
         newsButton.click();
-        return new NewsPage(driver);
-
     }
-
 }

@@ -43,16 +43,13 @@ public class NewsPage extends BasePage {
         searchInput.sendKeys(this.getCategoryText(), Keys.ENTER);
     }
 
-    public CoronavirusPage clickCoronaButton() {
+    public void clickCoronaButton() {
         coronaButton.click();
-        return new CoronavirusPage(driver);
     }
 
-    public NewsPage clickSignInLaterButton() {
-
+    public void clickSignInLaterButton() {
         waitVisibilityOfElement(signInLater);
         signInLater.click();
-        return this;
     }
 
     public int checkWhatSecondLineArticlesMatch(String[] arrayNamesOfArticles) {
@@ -66,5 +63,4 @@ public class NewsPage extends BasePage {
         }
         return count;
     }
-
 }
