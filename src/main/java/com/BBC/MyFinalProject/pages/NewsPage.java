@@ -45,6 +45,7 @@ public class NewsPage extends BasePage {
     }
 
     public void clickCoronaButton() {
+
         coronaButton.click();
     }
 

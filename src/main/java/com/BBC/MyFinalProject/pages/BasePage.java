@@ -13,7 +13,6 @@ public abstract class BasePage {
     protected final WebDriver driver;
     protected final int timeValueOfWait = 10;
 
-
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

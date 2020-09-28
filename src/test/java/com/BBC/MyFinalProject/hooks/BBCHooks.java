@@ -8,7 +8,7 @@ public class BBCHooks {
 
     @Before
     public void setDriver() {
-        DriverManager.getDriver("chrome");
+        DriverManager.getDriver(DriverManager.Browser.chrome);
     }
 
     @After

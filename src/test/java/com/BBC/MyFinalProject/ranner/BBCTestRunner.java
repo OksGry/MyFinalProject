@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         plugin = "pretty",
         monochrome = true,
-        glue = "com.BBC.MyFinalProject",
+        glue = "com/bbc/myfinalproject",
         features = "src/test/resources/com.BBC.MyFinalProject/")
 
 public class BBCTestRunner extends AbstractTestNGCucumberTests { }

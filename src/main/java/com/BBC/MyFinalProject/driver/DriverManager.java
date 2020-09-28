@@ -9,23 +9,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverManager {
 
     private static WebDriver driver;
-    private static String driverType = "";
+    private static Browser driverType;
 
 
     private DriverManager() {
     }
 
-    public static WebDriver getDriver(String driverName) {
+    public static WebDriver getDriver(Browser driverName) {
         driverType = driverName;
 
         if (null == driver) {
             switch (driverName) {
-                case "firefox": {
+                case firefox: {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 }
-                case "edge": {
+                case edge: {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
@@ -49,5 +49,11 @@ public class DriverManager {
             driver.quit();
             driver = null;
         }
+    }
+
+    public enum Browser {
+        firefox,
+        edge,
+        chrome
     }
 }

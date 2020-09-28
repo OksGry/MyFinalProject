@@ -1,6 +1,5 @@
 package com.BBC.MyFinalProject.pages;
 
-import com.BBC.MyFinalProject.driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,44 +37,21 @@ public class StoryFormPage extends BasePage {
         super(driver);
     }
 
-    public WebElement getTextFieldForStory() {
-        return textFieldForStory;
-    }
 
-    public WebElement getInputNameField() {
-        return inputNameField;
-    }
-
-    public WebElement getInputEmailField() {
-        return inputEmailField;
-    }
-
-    public WebElement getInputNumberField() {
-        return inputNumberField;
-    }
-
-    public WebElement getInputLocationField() {
-        return inputLocationField;
-    }
-
-    public WebElement getCheckboxPublishingName() {
-        return checkboxPublishingName;
-    }
-
-    public WebElement getCheckboxConfirmAge() {
-        return checkboxConfirmAge;
-    }
-
-    public WebElement getCheckboxTeamsOfService() {
-        return checkboxTeamsOfService;
-    }
-
-    public void inputData(WebElement inputField, String data) {
-        inputField.sendKeys(data);
-    }
-
-    public void clickCheckbox(WebElement checkbox) {
-        checkbox.click();
+    public void clickCheckbox(String nameCheckbox) {
+        switch (nameCheckbox) {
+            case "Please don't publish my name": {
+                checkboxPublishingName.click();
+                break;
+            }
+            case "I am over 16 years old": {
+                checkboxConfirmAge.click();
+                break;
+            }
+            default: {
+                checkboxTeamsOfService.click();
+            }
+        }
     }
 
     public void clickSubmitButton() {
@@ -84,5 +60,30 @@ public class StoryFormPage extends BasePage {
 
     public String getUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public void fillField(String nameField, String valueForField) {
+
+        switch (nameField) {
+            case "Story": {
+                textFieldForStory.sendKeys(valueForField);
+                break;
+            }
+            case "Name": {
+                inputNameField.sendKeys(valueForField);
+                break;
+            }
+            case "Email address": {
+                inputEmailField.sendKeys(valueForField);
+                break;
+            }
+            case "Contact number": {
+                inputNumberField.sendKeys(valueForField);
+                break;
+            }
+            default: {
+                inputLocationField.sendKeys(valueForField);
+            }
+        }
     }
 }

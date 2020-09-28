@@ -1,14 +1,12 @@
 package com.BBC.MyFinalProject.steps;
 
 import com.BBC.MyFinalProject.driver.DriverManager;
-import com.BBC.MyFinalProject.pages.HomePage;
-import com.BBC.MyFinalProject.pages.NewsPage;
-import com.BBC.MyFinalProject.pages.SearchResultPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static com.BBC.MyFinalProject.steps.PageProvider.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class News {
@@ -19,23 +17,20 @@ public class News {
             "Stabbings suspect 'was targeting Charlie Hebdo'",
             "Bollywood star questioned in India drugs case",
             "Sparks fly during police chase"};
-    private final HomePage homePage = new HomePage(DriverManager.getDriver());
-    private final NewsPage newsPage = new NewsPage(DriverManager.getDriver());
-    private final SearchResultPage searchResultPage = new SearchResultPage(DriverManager.getDriver());
+
     private String searchKey = "";
 
     @Given("the user open BBC website")
     public void openWebSite() {
-        String URL = "https://www.bbc.com/";
-        DriverManager.getDriver().get(URL);
+        DriverManager.getDriver().get("https://www.bbc.com/");
     }
 
-    @Given("the user go to News")
+    @And("the user go to News")
     public void clickNewsButton() {
         homePage.clickNewsButton();
     }
 
-    @Given("the user close popup")
+    @And("the user close popup")
     public void clickSignInLaterButton() {
         newsPage.clickSignInLaterButton();
     }
@@ -46,12 +41,10 @@ public class News {
     }
 
     @And("enter this text in the Search bar")
-    public void enterThisTextInTheSearchBar() {
+    public void enterTextOfCategoryInTheSearchBar() {
         newsPage.searchByKeyword();
     }
 
-    // чи можно робити щось накшталт цього - створювати окрему змінну для методу який дає actual result перед асертом,
-    // чи краще залишити як методах що нижче?
     @Then("the name of the headline article to match the expected <title>")
     public void checkTheNameOfTheHeadlineArticle(String expTitle) {
         String actualResult = newsPage.getTextFromHeadlineArticle();
@@ -65,17 +58,21 @@ public class News {
 
     @Then("secondary article titles to match the list of expected titles")
     public void secondaryArticleTitlesToMatchTheListOfExpectedTitles() {
-        assertThat(newsPage.checkWhatSecondLineArticlesMatch(arrayNamesOfArticles))
+        int actualResult = newsPage.checkWhatSecondLineArticlesMatch(arrayNamesOfArticles);
+
+        assertThat(actualResult)
                 .overridingErrorMessage("Secondary article titles doesn't match the list of expected titles")
                 .isEqualTo(5);
     }
 
     @Then("the name of the first article include the text of the Category")
     public void theNameOfTheFirstArticleIncludeTheTextOfTheCategory() {
-        assertThat(searchResultPage.getTextOfSearchResult())
+        String actualResult = searchResultPage.getTextOfSearchResult();
+
+        assertThat(actualResult)
                 .overridingErrorMessage(
                         "The name of the first article <%s> doesn't include <%s>",
-                        searchResultPage.getTextOfSearchResult(), searchKey)
+                        actualResult, searchKey)
                 .contains(searchKey);
     }
 }
