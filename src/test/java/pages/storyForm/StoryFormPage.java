@@ -1,37 +1,38 @@
-package pages;
+package pages.storyForm;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 
 public class StoryFormPage extends BasePage {
 
     @FindBy(tagName = "textarea")
-    protected static WebElement textFieldForStory;
+    protected WebElement textFieldForStory;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
-    protected static WebElement inputNameField;
+    protected  WebElement inputNameField;
 
     @FindBy(xpath = "//input[@placeholder='Email address']")
-    protected static WebElement inputEmailField;
+    protected  WebElement inputEmailField;
 
     @FindBy(xpath = "//input[@placeholder='Contact number ']")
-    protected static WebElement inputNumberField;
+    protected  WebElement inputNumberField;
 
     @FindBy(xpath = "//input[@placeholder='Location ']")
-    protected static WebElement inputLocationField;
+    protected  WebElement inputLocationField;
 
     @FindBy(xpath = "//div[@class='embed-content-container']/div[@class='checkbox' and position()=5]//input[@type='checkbox']")
-    protected static WebElement checkboxPublishingName;
+    protected  WebElement checkboxPublishingName;
 
     @FindBy(xpath = "//div[@class='embed-content-container']/div[@class='checkbox' and position()=6]//input[@type='checkbox']")
-    protected static WebElement checkboxConfirmAge;
+    protected  WebElement checkboxConfirmAge;
 
     @FindBy(xpath = "//div[@class='embed-content-container']/div[@class='checkbox' and position()=7]//input[@type='checkbox']")
-    protected static WebElement checkboxTeamsOfService;
+    protected  WebElement checkboxTeamsOfService;
 
     @FindBy(xpath = "//button[text()='Submit']")
-    protected static WebElement submitButton;
+    private WebElement submitButton;
 
 
     public StoryFormPage(WebDriver driver) {
@@ -39,14 +40,14 @@ public class StoryFormPage extends BasePage {
     }
 
     public StoryFormPage inputData(WebElement inputField, String data) {
-        if (!data.equals("")) {
+        if (!data.trim().isEmpty()) {
             inputField.sendKeys(data);
         }
         return this;
     }
 
     public StoryFormPage clickCheckbox(WebElement checkbox, String check) {
-        if (check.equals("yes")) {
+        if (check.equalsIgnoreCase("yes")) {
             checkbox.click();
         }
         return this;

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.storyForm.Form;
 
 public class CoronavirusPage extends BasePage {
 
@@ -13,7 +14,6 @@ public class CoronavirusPage extends BasePage {
     private WebElement howToShareButton;
 
     public CoronavirusPage(WebDriver driver) {
-
         super(driver);
     }
 

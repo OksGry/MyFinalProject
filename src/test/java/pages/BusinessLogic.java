@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import pages.storyForm.StoryFormPage;
 
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class BusinessLogic extends BasePage {
     }
 
     public StoryFormPage userCanSubmitStory(Map<String, String> data) {
-        new HomePage(driver)
+        return new HomePage(driver)
                 .clickNewsButton()
                 .clickSignInLaterButton()
                 .clickCoronaButton()
@@ -20,7 +21,7 @@ public class BusinessLogic extends BasePage {
                 .fillForm(data)
                 .clickSubmitButton();
 
-        return new StoryFormPage(driver);
+        //return new StoryFormPage(driver);
     }
 
     public NewsPage userGoToNews() {
