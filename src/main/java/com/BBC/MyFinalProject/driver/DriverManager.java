@@ -8,14 +8,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
 
-    private static WebDriver driver;
+    private  static WebDriver driver;
     private static Browser driverType;
 
 
     private DriverManager() {
     }
 
-    public static WebDriver getDriver(Browser driverName) {
+    public  static WebDriver getDriver(Browser driverName) {
         driverType = driverName;
 
         if (null == driver) {
@@ -45,7 +45,7 @@ public class DriverManager {
     }
 
     public static void quitDriver() {
-        if (driver != null) {
+        if (driver!= null) {
             driver.quit();
             driver = null;
         }

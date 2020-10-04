@@ -12,7 +12,7 @@ public class NewsPage extends BasePage {
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//h3")
     private WebElement headlineArticle;
 
-    @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//a//span[@aria-hidden='true']")
+    @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//li[@class ='nw-c-promo-meta']//span")
     private WebElement categoryLink;
 
     @FindBy(xpath = "//div[contains(@class,'secondary-item')]//h3")

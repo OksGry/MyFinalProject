@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static com.BBC.MyFinalProject.steps.PageProvider.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class News {
@@ -20,6 +19,9 @@ public class News {
 
     private String searchKey = "";
 
+    private final PageProvider pageProvider = new PageProvider();
+
+
     @Given("the user open BBC website")
     public void openWebSite() {
         DriverManager.getDriver().get("https://www.bbc.com/");
@@ -27,27 +29,27 @@ public class News {
 
     @And("the user go to News")
     public void clickNewsButton() {
-        homePage.clickNewsButton();
+        pageProvider.homePage.clickNewsButton();
     }
 
     @And("the user close popup")
     public void clickSignInLaterButton() {
-        newsPage.clickSignInLaterButton();
+        pageProvider.newsPage.clickSignInLaterButton();
     }
 
     @When("stores the text of the Category of the headline article")
     public void storesTheTextOfTheCategoryOfTheHeadlineArticle() {
-        searchKey = newsPage.getCategoryText();
+        searchKey = pageProvider.newsPage.getCategoryText();
     }
 
     @And("enter this text in the Search bar")
     public void enterTextOfCategoryInTheSearchBar() {
-        newsPage.searchByKeyword();
+        pageProvider.newsPage.searchByKeyword();
     }
 
     @Then("the name of the headline article to match the expected <title>")
     public void checkTheNameOfTheHeadlineArticle(String expTitle) {
-        String actualResult = newsPage.getTextFromHeadlineArticle();
+        String actualResult = pageProvider.newsPage.getTextFromHeadlineArticle();
 
         assertThat(actualResult)
                 .overridingErrorMessage(
@@ -58,7 +60,7 @@ public class News {
 
     @Then("secondary article titles to match the list of expected titles")
     public void secondaryArticleTitlesToMatchTheListOfExpectedTitles() {
-        int actualResult = newsPage.checkWhatSecondLineArticlesMatch(arrayNamesOfArticles);
+        int actualResult = pageProvider.newsPage.checkWhatSecondLineArticlesMatch(arrayNamesOfArticles);
 
         assertThat(actualResult)
                 .overridingErrorMessage("Secondary article titles doesn't match the list of expected titles")
@@ -67,7 +69,7 @@ public class News {
 
     @Then("the name of the first article include the text of the Category")
     public void theNameOfTheFirstArticleIncludeTheTextOfTheCategory() {
-        String actualResult = searchResultPage.getTextOfSearchResult();
+        String actualResult = pageProvider.searchResultPage.getTextOfSearchResult();
 
         assertThat(actualResult)
                 .overridingErrorMessage(

@@ -7,11 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static com.BBC.MyFinalProject.driver.DriverManager.getDriver;
+
 
 public abstract class BasePage {
 
-    protected final WebDriver driver;
-    protected final int timeValueOfWait = 10;
+    protected final int timeValueOfWait = 20;
+    protected WebDriver driver = getDriver();
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
